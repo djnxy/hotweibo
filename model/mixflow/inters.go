@@ -15,7 +15,7 @@ import (
 
 func FetchUve(data_chans chan<- map[string]interface{}) {
 	res := map[string]interface{}{"type": "uve", "data": []string{}}
-	req, err := http.NewRequest("POST", "http://api.uve.mobile.sina.cn/uve/service/hot_tweets_feed", strings.NewReader("uid=2908068201&from=1056095010&ua=Xiaomi-MI+4LTE__weibo__5.6.0__android__android4.4.4&wm=20005_0002&ip=10.209.73.87&lang=zh_CN&source=99075054&gsid=_2A254dT0EDeTxGeRL6FAU8SbJyTuIHXVZIzfMrDV6PUJbrdANLUbHkWpv0dtVA5JVzfydSKEu5PBeuRzAqQ..&unread_status=20"))
+	req, err := http.NewRequest("POST", "uvehost", strings.NewReader("uveparam"))
 	if err != nil {
 		data_chans <- res
 		return
@@ -134,7 +134,7 @@ func FetchLocation(data_chans chan<- map[string]interface{}) {
 		}
 	}
 
-	req, err := http.NewRequest("GET", "http://i2.api.weibo.com/2/darwin/table/show.json?appkey=1428722706&table=user_city&key=1042:2908068201&source=99075054", nil)
+	req, err := http.NewRequest("GET", "api host and param", nil)
 	if err != nil {
 		data_chans <- res
 		return
