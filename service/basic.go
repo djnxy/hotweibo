@@ -26,7 +26,7 @@ var (
 )
 
 func InitRedis7474Pool() {
-	server := "rs7474.mars.grid.sina.com.cn:7474"
+	server := "host:port"
 	password := ""
 	Redis7474pool = &redis.Pool{
 		MaxIdle:     50,
@@ -52,7 +52,7 @@ func InitRedis7474Pool() {
 }
 
 func InitRedis7475Pool() {
-	server := "rs7475.mars.grid.sina.com.cn:7475"
+	server := "host:port"
 	password := ""
 	Redis7475pool = &redis.Pool{
 		MaxIdle:     50,
@@ -78,7 +78,7 @@ func InitRedis7475Pool() {
 }
 
 func InitRedisPool() {
-	server := "10.210.215.245:6379"
+	server := "host:port"
 	password := ""
 	Redispool = &redis.Pool{
 		MaxIdle:     50,
@@ -105,7 +105,7 @@ func InitRedisPool() {
 
 func InitDbPool() {
 	var err error
-	Dbpool, err = sql.Open("mysql", "root:123456@tcp(10.210.215.245:3306)/test?charset=utf8")
+	Dbpool, err = sql.Open("mysql", "root:123456@tcp(host:port)/test?charset=utf8")
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -117,7 +117,7 @@ func InitDbPool() {
 
 func InitBasicDbPool() {
 	var err error
-	BasicDbpool, err = sql.Open("mysql", "root:test@tcp(10.79.32.82:3600)/hotmblog?charset=utf8")
+	BasicDbpool, err = sql.Open("mysql", "root:test@tcp(host:port)/hotmblog?charset=utf8")
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -130,7 +130,7 @@ func InitBasicDbPool() {
 func InitHotMCPool() {
 	var conf = config.New()
 
-	conf.Servers = []string{"10.75.1.58:7826"}
+	conf.Servers = []string{"host:port"}
 	conf.ReadTimeout = 1000
 	conf.WriteTimeout = 1000
 	conf.InitConns = 50
@@ -146,7 +146,7 @@ func InitHotMCPool() {
 func InitMCPool() {
 	var conf = config.New()
 
-	conf.Servers = []string{"10.210.215.245:11211"}
+	conf.Servers = []string{"host:port"}
 	conf.ReadTimeout = 1000
 	conf.WriteTimeout = 1000
 	conf.InitConns = 50
